@@ -23,7 +23,6 @@ int main() {
     char result = str.substr(2,1)[0];
 
     points+=int(result)%4*3+(int(action)-2-(int(result)-89)*2)%3+1;
-    //points+=(int(response)-int(action)+2)%3*3+int(response)%4+1;
   }
   File.close();
   std::cout << "part 2: " << points << std::endl;
