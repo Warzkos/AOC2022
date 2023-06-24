@@ -56,6 +56,7 @@ int main(){
         endlooppt2:
         continue;
     }
+    File.close();
     
     std::cout << "PART2\nCumulated priority: " << cumPriority;
 

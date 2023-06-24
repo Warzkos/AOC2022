@@ -8,7 +8,7 @@ int main(){
     int cum = 0;
     std::string line;
     std::ifstream File("input.txt");
-    
+
     while (getline(File, line)){
         std::string assignments1 = line.substr(0, line.find(','));
         std::string assignments2 = line.substr(line.find(',')+1);
@@ -53,6 +53,7 @@ int main(){
             cum++;
         }
     }
+    File.close();
 
     std::cout << "PART2\nCum pairs: " << cum;
 
