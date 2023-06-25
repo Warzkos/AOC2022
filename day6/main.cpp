@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 
 int main(){
 
@@ -25,7 +24,7 @@ int main(){
         continue_loop:
         continue;
     }
-    
+
     std::cout << marker;
 
     return 0;
