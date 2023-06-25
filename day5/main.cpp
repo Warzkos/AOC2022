@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <vector>
 
+#define PART1 1
+#define PART2 0
+
 int main(){
     int stack_num = 1;
 
@@ -70,14 +73,22 @@ int main(){
         int from = stoi(line.substr(line.find("from")+5, line.find("to")-1-line.find("from")+5));
         int to   = stoi(line.substr(line.find("to")+3));
 
-        // stacks[to-1].insert(stacks[to-1].end(), stacks[from-1].end()-move, stacks[from-1].end());
-
+        #if PART2 == 1
+        stacks[to-1].insert(stacks[to-1].end(), stacks[from-1].end()-move, stacks[from-1].end());
+        stacks[from-1].erase(stacks[from-1].end()-move, stacks[from-1].end());
+        #endif
+        #if PART1 == 1
+        for(int i=0; i<move; i++){
+            stacks[to-1].push_back(stacks[from-1].back());
+            stacks[from-1].pop_back();
+        }
+        #endif
         //  sanity check
         // for(int i=0; i<stacks[to-1].size(); i++)
         //     std::cout << stacks[to-1][i];
         // std::cout << std::endl;
 
-        // stacks[from-1].erase(stacks[from-1].end()-move, stacks[from-1].end());
+        
 
         // sanity check
         // for(int i=0; i<stacks[from-1].size(); i++)
@@ -93,10 +104,7 @@ int main(){
         //     std::cout << std::endl;
         // }
 
-        for(int i=0; i<move; i++){
-            stacks[to-1].push_back(stacks[from-1].back());
-            stacks[from-1].pop_back();
-        }
+
     }
 
     for (int i=0; i<stacks.size(); i++){
